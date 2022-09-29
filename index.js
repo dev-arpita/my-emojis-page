@@ -1,15 +1,21 @@
-// Render the emojis as <span> tags in the emojisContainer <div>
-
-// Hints: Use either createElement(), textContent, and append()
-// or innerHTML and a template string
+// Hook an event listener up with the button, and log out the input field's value when it's clicked
 
 const myEmojis = ["👨‍💻", "⛷", "🍲"]
-const emojiContainer = document.getElementById("emojiContainer")
+const emojiContainer = document.getElementById("emoji-container")
 
 for (let i = 0; i < myEmojis.length; i++) {
-    // emojiContainer.textContent += myEmojis[i];
-    let spanEl = document.createElement("span");
-    spanEl.textContent = myEmojis[i]
-    emojiContainer.append(spanEl)
-
+    const emoji = document.createElement('span')
+    emoji.textContent = myEmojis[i]
+    emojiContainer.append(emoji)
 }
+
+const pushBtn = document.getElementById("push-btn")
+
+pushBtn.addEventListener("click", function() {
+
+    const emojiInput = document.getElementById("emoji-input")
+    const newEmoji = emojiInput.value
+    // console.log(newEmoji)
+    myEmojis.push(newEmoji)
+    console.log(myEmojis)
+})
